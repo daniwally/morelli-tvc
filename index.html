@@ -389,6 +389,65 @@
         font-size: 16px;
     }
 
+    /* ---------- AUDIO PLAYER ---------- */
+    .audio-player {
+        margin-top: 32px;
+        padding: 32px;
+        background: linear-gradient(180deg, #0E0D0C 0%, var(--carbon) 100%);
+        border: 1px solid var(--steel-1);
+        position: relative;
+    }
+    .audio-player::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--ember), transparent);
+    }
+    .audio-player-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 24px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--steel-1);
+    }
+    .audio-player-label {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--ember);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .audio-player-label .dot {
+        width: 6px; height: 6px; border-radius: 50%;
+        background: var(--ember);
+        box-shadow: 0 0 8px rgba(226, 88, 34, 0.6);
+        animation: pulse 3.6s infinite ease-in-out;
+    }
+    .audio-player-meta {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--steel-3);
+    }
+    .audio-player audio {
+        width: 100%;
+        height: 44px;
+        display: block;
+        color-scheme: dark;
+    }
+    /* Safari-only tweak: el player nativo respeta color-scheme dark */
+    .audio-player audio::-webkit-media-controls-panel {
+        background: var(--carbon);
+    }
+
     /* ---------- STORYBOARD ---------- */
     .scenes { margin-top: 60px; display: flex; flex-direction: column; gap: 1px; background: var(--steel-1); border: 1px solid var(--steel-1); }
     .scene {
@@ -899,6 +958,20 @@
                 <div class="vo">Morelli.<br>Nacida en el fuego.</div>
             </div>
 
+        </div>
+
+        <div class="audio-player">
+            <div class="audio-player-header">
+                <div class="audio-player-label">
+                    <span class="dot"></span>
+                    Demo · Voz en off · Iteración 01
+                </div>
+                <div class="audio-player-meta">1:12 · MP3 128 kbps</div>
+            </div>
+            <audio controls preload="metadata">
+                <source src="audio/manifesto-vo.mp3" type="audio/mpeg">
+                Tu navegador no soporta audio HTML5.
+            </audio>
         </div>
 
     </div>
